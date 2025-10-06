@@ -12,7 +12,6 @@ func (l Lang) String() string {
 	return [...]string{"JavaScript", "GoLang", "Java"}[l]
 }
 
-// Retorna [nome do arquivo, conteúdo] para cada linguagem
 func (l Lang) MainCodeExample() []string {
 	switch l {
 	case JavaScript:
