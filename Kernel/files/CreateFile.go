@@ -3,14 +3,12 @@ package files
 import (
 	"fmt"
 	"os"
-	model "pc/Model"
 )
 
 func CreateFile(
-	p model.Project,path string,
+	name string,content string,path string,
 ) {
-    example := p.LangProject.MainCodeExample()
-	err := os.WriteFile(example[0],[]byte(example[1]),0644)
+	err := os.WriteFile(name,[]byte(content),0644)
 	if err != nil{
 		fmt.Println("Error for create file")
 		return
