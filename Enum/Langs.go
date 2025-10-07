@@ -6,10 +6,11 @@ const (
 	JavaScript Lang = iota
 	GoLang
 	Java
+	None
 )
 
 func (l Lang) String() string {
-	return [...]string{"JavaScript", "GoLang", "Java"}[l]
+	return [...]string{"JavaScript", "GoLang", "Java","None"}[l]
 }
 
 func (l Lang) MainCodeExample() []string {
