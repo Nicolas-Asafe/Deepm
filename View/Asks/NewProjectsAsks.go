@@ -14,6 +14,10 @@ func NewProjectsAsks() bool {
 
 	fmt.Print("Project name: ")
 	fmt.Scanln(&name)
+	if name == ""{
+		fmt.Println("Enter name project")
+		return true
+	}
 
 	fmt.Println("\nSelect language:")
 	fmt.Println("[0] JavaScript")
