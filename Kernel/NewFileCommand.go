@@ -3,7 +3,7 @@ package kernel
 import (
 	"fmt"
 	enum "pc/Enum"
-	"pc/Kernel/files"
+	"pc/Kernel/files-manager"
 	model "pc/Model"
 	"os"
 )
