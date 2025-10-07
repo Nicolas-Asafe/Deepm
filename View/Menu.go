@@ -1,7 +1,10 @@
-package View
+package view
 
-import "fmt"
-import "pc/Model"
+import (
+	"fmt"
+	"pc/Model"
+	asks "pc/View/Asks"
+)
 
 
 func Menu() {
@@ -10,7 +13,7 @@ func Menu() {
 		fmt.Println()
 
 		options := []model.Option{
-			{OptionNumber: 1, OptionString: "New project", Function: newProject},
+			{OptionNumber: 1, OptionString: "New project", Function:asks.NewProjectsAsks},
 			{OptionNumber: 2, OptionString: "Delete project", Function: deleteProject},
 			{OptionNumber: 3, OptionString: "Code project", Function: codeProject},
 			{OptionNumber: 4, OptionString: "Exit", Function: exitProgram},
