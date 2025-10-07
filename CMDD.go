@@ -1,12 +1,10 @@
 package main
 
-import "fmt"
-import "pc/View"
+import (
+	enum "pc/Enum"
+	kernel "pc/Kernel"
+)
 
-func main(){
-	fmt.Println("Welcome to Command Prompt Dev")
-	fmt.Println("")
-	fmt.Println("Press any key for continue")
-	fmt.Scanln()
-	View.Menu()
+func main() {
+	kernel.NewFileCommand("game", enum.Java, 0.1, "Nicolas")
 }
