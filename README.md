@@ -1,14 +1,8 @@
-﻿## Sobre CMDD:
-- CMDD é um projeto pessoal meu, que vai me ajudar a manusear os meus projetos
+## About CMDD
+- CMDD is a personal project of mine designed to help me manage my projects.  
+- It’s written primarily in Go.  
+- CMDD supports Java, JavaScript, and Go.  
+- It doesn’t have a graphical interface — it runs entirely in the terminal.
 
-- CMDD usa go lang como linguagem principal
-
-- CMDD tem suporte para Java, JavaScript e Go
-
-- CMDD não tem uma interface gráfica, ele usa apenas o terminal
-
-
-## Versões:
+## Versions
 - [v-0.0.1](https://github.com/Nicolas-Asafe/CMDD/tree/v-0.0.1)
-
-
