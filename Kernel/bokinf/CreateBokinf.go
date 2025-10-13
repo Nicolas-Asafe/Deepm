@@ -1,0 +1,5 @@
+package bokinf
+
+func CreateBokinf(){
+
+} 

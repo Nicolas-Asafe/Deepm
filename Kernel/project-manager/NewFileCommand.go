@@ -1,11 +1,12 @@
-package kernel
+package project
 
 import (
 	"fmt"
+	"os"
 	enum "pc/Enum"
+	kernel "pc/Kernel"
 	"pc/Kernel/files-manager"
 	model "pc/Model"
-	"os"
 )
 
 
@@ -23,7 +24,7 @@ func NewFileCommand(
 		Author:      Author,
 	}
 	p.SetDateCreationForNow()
-	k := NewFuncKernel(&p)
+	k := kernel.NewFuncKernel(&p)
 
 	path := k.GetProjectPath()
 	fmt.Println("Project path:", path)
@@ -42,16 +43,18 @@ func NewFileCommand(
 		path,
 	)
 
+	CreateInfoFile(p,path)
+	return true
+}
 
-	content := fmt.Sprintf(`@echo off
-echo Name project: "%s"
-echo Date creation: "%s"
-echo Language project: "%s"
-echo Version: "%f"
-echo Author: "%s"`,
-		NameProject, p.DateCreation, LangProject, Version, Author)
+func CreateInfoFile(p model.Project, path string){
+		content := fmt.Sprintf(`@echo off
+echo Name project: %s
+echo Date creation: %s
+echo Language project: %s
+echo Version: %f
+echo Author: %s`,
+		p.NameProject, p.DateCreation, p.LangProject, p.Version, p.Author)
 
 	files.CreateFile("info.bat", content, path)
-
-	return true
 }

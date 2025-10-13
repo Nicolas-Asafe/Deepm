@@ -2,7 +2,7 @@ package asks
 
 import (
 	"fmt"
-	kernel "pc/Kernel"
+	"pc/Kernel/project-manager"
 )
 
 func OpenCodeProjectAsks() bool {
@@ -30,5 +30,5 @@ func OpenCodeProjectAsks() bool {
 	fmt.Print("> ")
 	fmt.Scanln(&openOption)
 
-	return kernel.OpenCodeProjectCommand(nameProject, langOption, openOption)
+	return project.OpenCodeProjectCommand(nameProject, langOption, openOption)
 }

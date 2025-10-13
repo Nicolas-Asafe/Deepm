@@ -3,7 +3,7 @@ package asks
 import (
 	"fmt"
 	"pc/Enum"
-	"pc/Kernel"
+	"pc/Kernel/project-manager"
 )
 
 func NewProjectsAsks() bool {
@@ -46,7 +46,7 @@ func NewProjectsAsks() bool {
 	fmt.Scanln(&author)
 
 	fmt.Println("\nCreating project...")
-	success := kernel.NewFileCommand(name, lang, version, author)
+	success := project.NewFileCommand(name, lang, version, author)
 	if success {
 		fmt.Println("Project created successfully!")
 	} else {
