@@ -3,7 +3,7 @@ package project
 import (
 	"fmt"
 	enum "pc/Enum"
-	"pc/Kernel/files-manager"
+	commands "pc/Kernel/files-commands"
 )
 
 func OpenCodeProjectCommand(nameProject string, langOption int, openOption int) bool {
@@ -38,12 +38,12 @@ func OpenCodeProjectCommand(nameProject string, langOption int, openOption int) 
 
 	switch openOption {
 	case 1:
-		if err := files.OpenVSCode(path); err != nil {
+		if err := commands.OpenVSCode(path); err != nil {
 			fmt.Println("Failed to open project in VS Code:", err)
 			return true
 		}
 	case 2:
-		if err := files.OpenInWindows(path); err != nil {
+		if err := commands.OpenInWindows(path); err != nil {
 			fmt.Println("Failed to open project in File Explorer:", err)
 			return true
 		}

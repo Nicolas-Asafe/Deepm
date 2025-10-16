@@ -23,9 +23,11 @@ func NewProjectsAsks() bool {
 	fmt.Println("[0] JavaScript")
 	fmt.Println("[1] GoLang")
 	fmt.Println("[2] Java")
+	fmt.Println("[3] Quit")
 	fmt.Print("> ")
 	fmt.Scanln(&langOption)
-
+    if langOption == 3 {return false}
+	
 	var lang enum.Lang
 	switch langOption {
 	case 0:
@@ -46,7 +48,7 @@ func NewProjectsAsks() bool {
 	fmt.Scanln(&author)
 
 	fmt.Println("\nCreating project...")
-	success := project.NewFileCommand(name, lang, version, author)
+	success := project.NewProjectCommand(name, lang, version, author)
 	if success {
 		fmt.Println("Project created successfully!")
 	} else {

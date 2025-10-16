@@ -21,14 +21,19 @@ func OpenCodeProjectAsks() bool {
 	fmt.Println("[0] JavaScript")
 	fmt.Println("[1] GoLang")
 	fmt.Println("[2] Java")
+	fmt.Println("[3] Quit")
 	fmt.Print("> ")
 	fmt.Scanln(&langOption)
+	if langOption == 3 {return false}
 
 	fmt.Println("\nChoose how to open:")
 	fmt.Println("[1] VS Code")
 	fmt.Println("[2] File Explorer (system default)")
+	fmt.Println("[3] Quit")
 	fmt.Print("> ")
 	fmt.Scanln(&openOption)
+	if langOption == 3 {return false}
+
 
 	return project.OpenCodeProjectCommand(nameProject, langOption, openOption)
 }

@@ -2,21 +2,19 @@ package project
 
 import (
 	"fmt"
-	"os"
 	enum "pc/Enum"
 	kernel "pc/Kernel"
-	"pc/Kernel/files-manager"
+	files "pc/Kernel/files-commands"
 	model "pc/Model"
 )
 
-
-func NewFileCommand(
+func NewProjectCommand(
 	NameProject string,
 	LangProject enum.Lang,
 	Version float64,
 	Author string,
 ) bool {
-	
+
 	p := model.Project{
 		NameProject: NameProject,
 		LangProject: LangProject,
@@ -24,31 +22,34 @@ func NewFileCommand(
 		Author:      Author,
 	}
 	p.SetDateCreationForNow()
-	k := kernel.NewFuncKernel(&p)
 
+	k := kernel.NewFuncKernel(&p)
 	path := k.GetProjectPath()
 	fmt.Println("Project path:", path)
 
-
-	err := os.MkdirAll(path, os.ModePerm)
-	if err != nil {
-		fmt.Println("Erro ao criar pasta do projeto:", err)
+	if !files.CreateFolder(path) {
 		return false
 	}
 
+	if !CreateProjectFiles(p, path) {
+		return false
+	}
 
+	return true
+}
+
+func CreateProjectFiles(p model.Project, path string) bool {
 	files.CreateFile(
 		p.LangProject.MainCodeExample()[0],
 		p.LangProject.MainCodeExample()[1],
 		path,
 	)
-
-	CreateInfoFile(p,path)
+	CreateInfoFile(p, path)
 	return true
 }
 
-func CreateInfoFile(p model.Project, path string){
-		content := fmt.Sprintf(`@echo off
+func CreateInfoFile(p model.Project, path string) bool {
+	content := fmt.Sprintf(`@echo off
 echo Name project: %s
 echo Date creation: %s
 echo Language project: %s
@@ -57,4 +58,5 @@ echo Author: %s`,
 		p.NameProject, p.DateCreation, p.LangProject, p.Version, p.Author)
 
 	files.CreateFile("info.bat", content, path)
+	return true
 }
