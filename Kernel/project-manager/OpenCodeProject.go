@@ -21,19 +21,7 @@ func OpenCodeProjectCommand(nameProject string, langOption int, openOption int) 
 		return true
 	}
 
-	var path string
-	switch langProject {
-	case enum.JavaScript:
-		path = fmt.Sprintf("C:\\Dev\\Projects\\JavaScriptProjects\\%s", nameProject)
-	case enum.GoLang:
-		path = fmt.Sprintf("C:\\Dev\\Projects\\GoProjects\\%s", nameProject)
-	case enum.Java:
-		path = fmt.Sprintf("C:\\Dev\\Projects\\JavaProjects\\%s", nameProject)
-	default:
-		fmt.Println("Unknown language.")
-		return true
-	}
-
+	path := fmt.Sprintf("C:\\Dev\\Projects\\%sProjects\\%s", langProject,nameProject)
 	fmt.Println("\nOpening project...")
 
 	switch openOption {
