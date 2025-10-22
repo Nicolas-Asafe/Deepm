@@ -19,7 +19,7 @@ func Menu() {
 
 		options := []model.Option{
 			{OptionNumber: 1, OptionString: "New project", Function:asks.NewProjectsAsks},
-			{OptionNumber: 2, OptionString: "Delete project", Function: deleteProject},
+			{OptionNumber: 2, OptionString: "Delete project", Function: asks.DeleteProjectAsks},
 			{OptionNumber: 3, OptionString: "Open project", Function: asks.OpenCodeProjectAsks},
 			{OptionNumber: 4, OptionString: "Exit", Function: func() bool {return false}},
 		}
@@ -34,9 +34,4 @@ func Menu() {
 			return 
 		}
 	}
-}
-
-func deleteProject() bool {
-	fmt.Println("Deleting project...")
-	return true
 }
