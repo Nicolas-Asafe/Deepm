@@ -21,7 +21,8 @@ func Menu() {
 			{OptionNumber: 1, OptionString: "New project", Function:asks.NewProjectsAsks},
 			{OptionNumber: 2, OptionString: "Delete project", Function: asks.DeleteProjectAsks},
 			{OptionNumber: 3, OptionString: "Open project", Function: asks.OpenCodeProjectAsks},
-			{OptionNumber: 4, OptionString: "Exit", Function: func() bool {return false}},
+			{OptionNumber: 4, OptionString: "List projects", Function:asks.ListProjectsAsks},//
+			{OptionNumber: 5, OptionString: "Exit", Function: func() bool {return false}},
 		}
 
 		shouldContinue, err := RenderOptions(options)
