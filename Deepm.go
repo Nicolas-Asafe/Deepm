@@ -3,7 +3,7 @@ package main
 import (
 	"os"
 	"pc/View/Terminal"
-	Utils "pc/utils"
+	Utils "pc/Utils"
 )
 
 func main(){
