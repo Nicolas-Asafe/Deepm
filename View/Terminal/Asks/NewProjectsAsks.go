@@ -2,13 +2,13 @@ package asks
 
 import (
 	"fmt"
-	"pc/Enum"
+	enum "pc/Enum"
 	"pc/Kernel/project-manager"
 )
 
 func NewProjectsAsks() bool {
 	var name string
-	var langOption int
+	var langOption enum.Lang
 	var version float64
 	var author string
 
@@ -27,19 +27,6 @@ func NewProjectsAsks() bool {
 	fmt.Print("> ")
 	fmt.Scanln(&langOption)
     if langOption == 3 {return false}
-	
-	var lang enum.Lang
-	switch langOption {
-	case 0:
-		lang = enum.JavaScript
-	case 1:
-		lang = enum.GoLang
-	case 2:
-		lang = enum.Java
-	default:
-		fmt.Println("Invalid option.")
-		return true
-	}
 
 	fmt.Print("\nProject version (e.g. 1.0): ")
 	fmt.Scanln(&version)
@@ -48,7 +35,7 @@ func NewProjectsAsks() bool {
 	fmt.Scanln(&author)
 
 	fmt.Println("\nCreating project...")
-	success := project.NewProjectCommand(name, lang, version, author)
+	success := project.NewProjectCommand(name, langOption, version, author)
 	if success {
 		fmt.Println("Project created successfully!")
 	} else {

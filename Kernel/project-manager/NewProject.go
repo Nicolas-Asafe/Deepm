@@ -3,45 +3,38 @@ package project
 import (
 	"fmt"
 	enum "pc/Enum"
-	kernel "pc/Kernel"
 	files "pc/Kernel/files-commands"
 	model "pc/Model"
 )
 
 func NewProjectCommand(
 	NameProject string,
-	LangProject enum.Lang,
+	LangOption enum.Lang,
 	Version float64,
 	Author string,
 ) bool {
-
-	p := model.Project{
-		NameProject: NameProject,
-		LangProject: LangProject,
-		Version:     Version,
-		Author:      Author,
-	}
-	p.SetDateCreationForNow()
-
-	k := kernel.NewFuncKernel(&p)
-	path := k.GetProjectPath()
+	var LangProject enum.Lang = LangOption
+	
+	path := fmt.Sprintf("C:\\Dev\\Projects\\%sProjects\\%s", LangProject.String(),NameProject)
 	fmt.Println("Project path:", path)
 
 	if !files.CreateFolder(path) {
 		return false
 	}
-
-	if !CreateProjectFiles(p, path) {
-		return false
+	p:=model.Project{
+		NameProject: NameProject,
+		LangString: LangOption.String(),
+		Version: Version,
+		Author: Author,
 	}
 
-	return true
+	return CreateProjectFiles(p,LangOption,path) 
 }
 
-func CreateProjectFiles(p model.Project, path string) bool {
+func CreateProjectFiles(p model.Project,LangOption enum.Lang, path string) bool {
 	files.CreateFile(
-		p.LangProject.MainCodeExample()[0],
-		p.LangProject.MainCodeExample()[1],
+		LangOption.MainCodeExample()[0],
+		LangOption.MainCodeExample()[1],
 		path,
 	)
 	CreateInfoFile(p, path)
@@ -55,7 +48,7 @@ echo Date creation: %s
 echo Language project: %s
 echo Version: %f
 echo Author: %s`,
-		p.NameProject, p.DateCreation, p.LangProject, p.Version, p.Author)
+		p.NameProject, p.DateCreation, p.LangString, p.Version, p.Author)
 
 	files.CreateFile("info.bat", content, path)
 	return true

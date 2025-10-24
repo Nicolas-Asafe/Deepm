@@ -1,4 +1,4 @@
-package model
+package Model
 
 type Option struct {
 	OptionNumber int

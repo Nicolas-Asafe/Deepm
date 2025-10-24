@@ -2,7 +2,7 @@ package view
 
 import (
 	"fmt"
-	"pc/Model"
+	model "pc/Model"
 )
 
 func RenderOptions(options []model.Option) (bool, error) {

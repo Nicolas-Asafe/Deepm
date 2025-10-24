@@ -6,22 +6,10 @@ import (
 	commands "pc/Kernel/files-commands"
 )
 
-func OpenCodeProjectCommand(nameProject string, langOption int, openOption int) bool {
-	var langProject enum.Lang
+func OpenCodeProjectCommand(nameProject string, langOption enum.Lang, openOption int) bool {
+	var langProject enum.Lang = langOption
 
-	switch langOption {
-	case 0:
-		langProject = enum.JavaScript
-	case 1:
-		langProject = enum.GoLang
-	case 2:
-		langProject = enum.Java
-	default:
-		fmt.Println("Invalid language option.")
-		return true
-	}
-
-	path := fmt.Sprintf("C:\\Dev\\Projects\\%sProjects\\%s", langProject,nameProject)
+	path := fmt.Sprintf("C:\\Dev\\Projects\\%sProjects\\%s", langProject.String(),nameProject)
 	fmt.Println("\nOpening project...")
 
 	switch openOption {

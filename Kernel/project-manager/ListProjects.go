@@ -8,19 +8,9 @@ import (
 )
 
 func ListProjects(langOption enum.Lang) ([]os.DirEntry,bool){
-	var langProject enum.Lang
-	switch langOption {
-	case 0:
-		langProject = enum.JavaScript
-	case 1:
-		langProject = enum.GoLang
-	case 2:
-		langProject = enum.Java
-	default:
-		fmt.Println("Invalid language option.")
-		return nil,true
-	}
-	path := fmt.Sprintf("C:\\Dev\\Projects\\%sProjects\\", langProject)
+	var langProject enum.Lang = langOption
+
+	path := fmt.Sprintf("C:\\Dev\\Projects\\%sProjects\\", langProject.String())
 	listProjects,ret := files.ListDir(path)
 	if !ret{
 		return nil,ret

@@ -2,12 +2,13 @@ package asks
 
 import (
 	"fmt"
+	enum "pc/Enum"
 	"pc/Kernel/project-manager"
 )
 
 func DeleteProjectAsks() bool {
 	var NameProject string
-	var LangOption int
+	var LangOption enum.Lang
 
 	fmt.Print("Enter the name project: ")
 	fmt.Scanln(&NameProject)

@@ -2,7 +2,7 @@ package view
 
 import (
 	"fmt"
-	"pc/Model"
+	model "pc/Model"
 	asks "pc/View/Terminal/Asks"
 )
 

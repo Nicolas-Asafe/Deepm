@@ -1,12 +1,11 @@
-package model
+package Model
 
 import (
-	"pc/Enum"
 	"time"
 )
 type Project struct{
 	NameProject string 
-	LangProject enum.Lang
+	LangString string
 	DateCreation string
 	Version float64
 	Author string

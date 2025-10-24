@@ -2,12 +2,13 @@ package asks
 
 import (
 	"fmt"
+	enum "pc/Enum"
 	"pc/Kernel/project-manager"
 )
 
 func OpenCodeProjectAsks() bool {
 	var nameProject string
-	var langOption int
+	var langOption enum.Lang
 	var openOption int
 
 	fmt.Print("Project name: ")
