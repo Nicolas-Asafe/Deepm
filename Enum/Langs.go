@@ -1,5 +1,9 @@
 package enum
 
+import (
+	languages "pc/Languages"
+)
+
 type Lang int
 
 const (
@@ -10,27 +14,28 @@ const (
 )
 
 func (l Lang) String() string {
-	return [...]string{"JavaScript", "GoLang", "Java","None"}[l]
+	return [...]string{"JavaScript", "GoLang", "Java", "None"}[l]
+}
+
+func GetAllLanguages() []Lang{
+	return []Lang{
+		JavaScript,GoLang,Java,
+	}
+}
+func GetAllLanguagesStrings() []string{
+	return []string{
+		JavaScript.String(),GoLang.String(),Java.String(),
+	}
 }
 
 func (l Lang) MainCodeExample() []string {
 	switch l {
 	case JavaScript:
-		return []string{"script.js", `console.log("Hello!");`}
+		return languages.JavaScriptLang()
 	case GoLang:
-		return []string{"main.go", `package main
-
-import "fmt"
-
-func main() {
-	fmt.Println("Hello!")
-}`}
+		return languages.GoLang()
 	case Java:
-		return []string{"Main.java", `public class Main {
-	public static void main(String[] args) {
-		System.out.println("Hello!");
-	}
-}`}
+		return languages.JavaLang()
 	default:
 		return []string{"", ""}
 	}
