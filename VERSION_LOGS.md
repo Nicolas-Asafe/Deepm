@@ -1,15 +1,16 @@
-## deepm windows version 0.0.1
+## deepm windows - final version 0.0.2
 
  <div>
    <p>Feats:</p>
    <ul>
      <li>New Project</li>
      <li>Open Project</li>
-     <li>[NEW!!] Delete Project</li>
+     <li>Delete Project</li>
+     <li>List Projects</li>
    </ul>
     <p>future feats:</p>
+    NONE
    <ul>
-     <li>List Projects</li>
    </ul>
    <br/>
 © 2025 Dot Vinci
