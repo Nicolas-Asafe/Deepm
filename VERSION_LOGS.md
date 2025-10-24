@@ -1,16 +1,15 @@
-## deepm windows - final version 0.0.2
+## deepm windows - version 0.0.2
 
  <div>
    <p>Feats:</p>
    <ul>
-     <li>New Project</li>
-     <li>Open Project</li>
-     <li>Delete Project</li>
-     <li>List Projects</li>
+     NONE
    </ul>
     <p>future feats:</p>
-    NONE
    <ul>
+    <li>Suport for languages: PHP,Ruby and Python</li>
+    <li>Suport for React</li>
+    <li>Refatored of structure</li>
    </ul>
    <br/>
 © 2025 Dot Vinci
